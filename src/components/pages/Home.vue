@@ -6,19 +6,13 @@
                     <img class="d-block w-100" :src="require(`@/assets/images/header-bg.png`)" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Welcome to our movie store</h3>
-                        <p>Search for the movies that you want.</p>
+                        <p>Check for overlap in movies.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <search :searchMovie="searchMovie"></search>
-        </div>
-        <div v-if="movies.length > 0" class="text-center my-4">
-            <h3>Recently Added Movies </h3>
-        </div>
-        <div>
-            <movies :items="movies"></movies>
+            <overlap></overlap>
         </div>
     </div>
 </template>
@@ -26,25 +20,25 @@
 <script>
 import { mapActions } from 'vuex';
 export default {
-    mounted() {
-        this.fetchMovies({ per_page: this.per_page, current_page: this.current_page, callback: this.loadMovies });
-    },
-    methods: {
-        ...mapActions(['fetchMovies']),
-        loadMovies(res) {
-            this.movies = res.data
-        },
-        searchMovie(query) {
-            this.$router.push({ name: 'search', query: { q: query } })
-        }
-    },
-    data() {
-        return {
-            per_page: 12,
-            current_page: 1,
-            movies: []
-        };
-    },
+    // mounted() {
+    //     this.fetchMovies({ per_page: this.per_page, current_page: this.current_page, callback: this.loadMovies });
+    // },
+    // methods: {
+    //     ...mapActions(['fetchMovies']),
+    //     loadMovies(res) {
+    //         this.movies = res.data
+    //     },
+    //     searchMovie(query) {
+    //         this.$router.push({ name: 'search', query: { q: query } })
+    //     }
+    // },
+    // data() {
+    //     return {
+    //         per_page: 12,
+    //         current_page: 1,
+    //         movies: []
+    //     };
+    // },
 };
 </script>
 <style scoped>

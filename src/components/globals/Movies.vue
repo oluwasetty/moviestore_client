@@ -8,14 +8,14 @@
             <div id="list-th">
                 <div class="row">
                     <div v-for="(movie, i) in items" :key="i" class="col-xl-3 col-lg-4 col-md-6 mt-4">
-                        <div @click="redirectURL(movie.tconst)" class="movie read">
+                        <div @click="redirectURL(movie)" class="movie read">
                             <div class="cover">
-                                <img :src="require(`@/assets/images/skeleton-loading.gif`)" />
+                                <img :src="movie.image" />
                             </div>
                             <div class="description">
-                                <p class="title">{{ movie.primaryTitle }}<br>
-                                    <span class="author">{{ movie.genres }}</span><br>
-                                    <small>{{ movie.startYear }}</small>
+                                <p class="title">{{ movie.title }}<br>
+                                    <span class="author">{{ movie.type }}</span><br>
+                                    <small>{{ movie.year }}</small>
                                 </p>
                             </div>
                         </div>
@@ -40,8 +40,8 @@ export default {
         format_date(date) {
             return moment(new Date(date)).format("MMM D, Y")
         },
-        redirectURL(id) {
-            this.$router.push({ name: 'product', params: { id: id } })
+        redirectURL(movie) {
+            this.$router.push({ name: 'product', params: { id: movie.id, movie: movie } })
         }
     }
 }

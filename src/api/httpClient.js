@@ -5,12 +5,8 @@ import router from "./../router"
 
 /** Default config for axios instance */
 let config = {
-    baseURL: 'http://localhost:8000/api/',
+    baseURL: 'http://localhost:7071/api/',
     // timeout: 60000,
-    headers: {
-        "Content-Type": "application/json",
-        // anything you want to add to the headers
-    }
 };
 
 /** Creating the instance for axios */

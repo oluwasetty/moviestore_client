@@ -6,7 +6,7 @@
     </div>
     <div v-if="movies.length > 0">
       <movies :items="movies"></movies>
-      <pagination :links="links" :fetchMovies="fetchMovies" :current_page="current_page"></pagination>
+      <!-- <pagination :links="links" :fetchMovies="fetchMovies" :current_page="current_page"></pagination> -->
     </div>
     <div class="text-center" v-else>
       <img :src="require(`@/assets/images/Flip-Flop.gif`)">
@@ -25,10 +25,10 @@ export default {
   methods: {
     ...mapActions(['searchMovies']),
     loadMovies(res) {
-      this.movies = res.data,
-        this.count = res.meta.total,
-        this.current_page = res.meta.current_page,
-        this.links = res.meta.links
+      this.movies = res.data
+        this.count = res.data.count
+        // this.current_page = res.meta.current_page,
+        // this.links = res.meta.links
     },
     searchMovie(query) {
       this.query = query

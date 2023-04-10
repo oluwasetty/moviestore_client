@@ -22,7 +22,7 @@
       </ul>
       <router-link id="search-btn" class="btn my-2 my-sm-0" to="/search">Search</router-link>
       <a v-if="isLoggedIn" id="search-btn" class="btn my-2 my-sm-0" @click.prevent="doLogout" href="!#">Logout</a>
-      <router-link v-else id="search-btn" class="btn my-2 my-sm-0" to="/login">Login</router-link>
+      <!-- <router-link v-else id="search-btn" class="btn my-2 my-sm-0" to="/login">Login</router-link> -->
     </div>
   </nav>
 </template>
